@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Diseño de Software y Buenas Prácticas</title>
+    <style>
+        /* Variables de colores y estilos */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --info: #3498db;
+            --text: #333;
+            --text-light: #777;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Encabezado */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Tarjetas de contenido */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        .card-icon {
+            background-color: var(--secondary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Listas */
+        .feature-list {
+            list-style-type: none;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Grid layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Secciones especiales */
+        .highlight {
+            background-color: var(--light);
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .code-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .principle {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .principle h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tabla de estilos arquitectónicos */
+        .architecture-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .architecture-table th, 
+        .architecture-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .architecture-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .architecture-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Diseño de Software y Buenas Prácticas</h1>
+            <p>Una guía visual sobre principios, arquitecturas y metodologías para desarrollar software de calidad</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">1</div>
+                <h2 class="card-title">¿Qué es el Diseño de Software?</h2>
+            </div>
+            <p>El diseño de software, particularmente el diseño arquitectónico, es un proceso fundamental para construir aplicaciones de calidad que cumplan con los estándares. Implica el análisis y diseño de una solución que cubra las necesidades del negocio, así como la definición de la estructura que guiará el desarrollo.</p>
+            
+            <div class="highlight">
+                <p>La arquitectura de software permite diseñar el sistema para satisfacer los requisitos <strong>funcionales y no funcionales</strong>. Es un proceso creativo que implica tomar decisiones en lugar de seguir una secuencia rígida de actividades.</p>
+            </div>
+            
+            <h3>Niveles de Arquitectura</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>Arquitectura Empresarial</h4>
+                    <p>Define las relaciones entre los principales activos de una empresa con detalle bajo y alta genericidad.</p>
+                </div>
+                <div class="card">
+                    <h4>Arquitectura de Solución</h4>
+                    <p>Con detalle y genericidad media, define estructuras de alto nivel para guiar el diseño y desarrollo.</p>
+                </div>
+                <div class="card">
+                    <h4>Arquitectura de Software</h4>
+                    <p>Presenta un detalle alto y genericidad baja, definiendo patrones, estilos, datos y tecnologías.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">2</div>
+                <h2 class="card-title">Clean Code: Principios Fundamentales</h2>
+            </div>
+            <p>El código limpio (Clean Code) es una filosofía de desarrollo que busca facilitar la lectura y escritura de código haciéndolo intuitivo, siguiendo el principio "KISS" (Keep it simple stupid).</p>
+            
+            <div class="code-principles">
+                <div class="principle">
+                    <h4>Nombres con Sentido</h4>
+                    <p>Nombres de variables, funciones y clases deben ser precisos y claros, explicando su funcionalidad.</p>
+                </div>
+                <div class="principle">
+                    <h4>Funciones Reducidas</h4>
+                    <p>Máximo 20 líneas, principio de responsabilidad única, pocos argumentos (idealmente 0-3).</p>
+                </div>
+                <div class="principle">
+                    <h4>Comentarios Adecuados</h4>
+                    <p>Solo cuando el código no puede explicarse por sí mismo. Evitar comentarios redundantes.</p>
+                </div>
+                <div class="principle">
+                    <h4>Formato Consistente</h4>
+                    <p>Archivos no mayores a 500 líneas, máximo 120 caracteres por línea, variables declaradas cerca de su uso.</p>
+                </div>
+            </div>
+            
+            <h3>Manejo de Errores y Principios de Diseño</h3>
+            <ul class="feature-list">
+                <li>Las excepciones deben proporcionar información suficiente sobre el contexto y ubicación del error.</li>
+                <li>Separar la lógica del manejo de errores de la lógica de negocio.</li>
+                <li>Principio de responsabilidad única: Cada clase debe tener un propósito único.</li>
+                <li>Principio abierto/cerrado: Abiertas para extensión, cerradas para modificación.</li>
+                <li>Principio de inversión de dependencias: Depender de abstracciones, no de detalles concretos.</li>
+                <li>Bajo acoplamiento y alta cohesión entre clases.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">3</div>
+                <h2 class="card-title">Estilos Arquitectónicos</h2>
+            </div>
+            <p>Es importante analizar e identificar el estilo arquitectónico más adecuado según los atributos de calidad del proyecto.</p>
+            
+            <table class="architecture-table">
+                <thead>
+                    <tr>
+                        <th>Estilo</th>
+                        <th>Descripción</th>
+                        <th>Características</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Capas</strong></td>
+                        <td>Divide la aplicación en capas con roles definidos</td>
+                        <td>Separación de preocupaciones, presentación, reglas de negocio, acceso a datos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monolítico</strong></td>
+                        <td>Aplicación autosuficiente con componentes acoplados</td>
+                        <td>Trabajan con los mismos recursos, más simple de desarrollar inicialmente</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Microservicios</strong></td>
+                        <td>Pequeños componentes con una sola responsabilidad</td>
+                        <td>Escalabilidad, flexibilidad, desarrollo ágil, mayor capacidad de recuperación</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EDA</strong></td>
+                        <td>Arquitectura dirigida por eventos</td>
+                        <td>Asíncrona, distribuida, componentes con bajo acoplamiento</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cliente-Servidor</strong></td>
+                        <td>Modelo de aplicación distribuida</td>
+                        <td>Servidor provee servicios consumidos por clientes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">4</div>
+                <h2 class="card-title">Patrones de Diseño</h2>
+            </div>
+            <p>Soluciones comprobadas a problemas de diseño recurrentes, que han demostrado su efectividad y son reutilizables.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>Patrones Creacionales</h4>
+                    <p>Relacionados con la creación o construcción de objetos:</p>
+                    <ul class="feature-list">
+                        <li>Singleton</li>
+                        <li>Factory Method</li>
+                        <li>Abstract Factory</li>
+                        <li>Builder</li>
+                        <li>Prototype</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Patrones Estructurales</h4>
+                    <p>Forma en que las clases se relacionan entre sí:</p>
+                    <ul class="feature-list">
+                        <li>Adapter</li>
+                        <li>Decorator</li>
+                        <li>Facade</li>
+                        <li>Composite</li>
+                        <li>Proxy</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Patrones de Comportamiento</h4>
+                    <p>Procedimientos y asignación de responsabilidad:</p>
+                    <ul class="feature-list">
+                        <li>Observer</li>
+                        <li>Strategy</li>
+                        <li>Command</li>
+                        <li>Iterator</li>
+                        <li>State</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">5</div>
+                <h2 class="card-title">Herramientas Esenciales</h2>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>Colaboración y Gestión</h4>
+                    <ul class="feature-list">
+                        <li>Trello</li>
+                        <li>Asana</li>
+                        <li>JIRA</li>
+                        <li>Slack</li>
+                        <li>Microsoft Teams</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Prototipado</h4>
+                    <ul class="feature-list">
+                        <li>Axure RP</li>
+                        <li>Balsamiq Mockups</li>
+                        <li>Adobe XD</li>
+                        <li>Figma</li>
+                        <li>Sketch</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Control de Versiones</h4>
+                    <ul class="feature-list">
+                        <li>Git</li>
+                        <li>Mercurial</li>
+                        <li>GitHub</li>
+                        <li>GitLab</li>
+                        <li>Bitbucket</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>IDEs y Editores</h4>
+                    <ul class="feature-list">
+                        <li>Visual Studio Code</li>
+                        <li>IntelliJ IDEA</li>
+                        <li>Sublime Text</li>
+                        <li>PHPStorm</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Pruebas y Depuración</h4>
+                    <ul class="feature-list">
+                        <li>JUnit</li>
+                        <li>Selenium</li>
+                        <li>Pytest</li>
+                        <li>Chrome DevTools</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>CI/CD</h4>
+                    <ul class="feature-list">
+                        <li>Jenkins</li>
+                        <li>GitLab CI</li>
+                        <li>Travis CI</li>
+                        <li>CircleCI</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <div class="card-icon">6</div>
+                <h2 class="card-title">Metodologías Ágiles (XP)</h2>
+            </div>
+            <p>Extreme Programming (XP) es una de las metodologías ágiles más exitosas, centrada en construir productos muy ajustados al cliente, siendo flexible a contratiempos y cambios.</p>
+            
+            <div class="highlight">
+                <h4>Características Principales de XP:</h4>
+                <ul class="feature-list">
+                    <li><strong>Programación en parejas:</strong> Durante la codificación para asegurar calidad y universalidad del código.</li>
+                    <li><strong>Pruebas automáticas continuas:</strong> Factor clave, especialmente en proyectos a corto plazo.</li>
+                    <li><strong>Ciclos de desarrollo cortos (iteraciones):</strong> Análisis, diseño, desarrollo y pruebas en ciclos dinámicos.</li>
+                    <li><strong>Comunicación continua y retroalimentación:</strong> Promueve la reutilización de código.</li>
+                </ul>
+            </div>
+            
+            <p>En resumen, una cultura organizacional que promueva la integración de estas buenas prácticas facilita el entendimiento del equipo, estandariza un lenguaje universal y contribuye a la reducción de tiempos, esfuerzos y costos en los proyectos de software.</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Infografía basada en el documento "Definición de Diseño de Software" - Resumen de conceptos clave y mejores prácticas</p>
+        </div>
+    </footer>
+</body>
+</html>
